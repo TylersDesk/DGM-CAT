@@ -1,0 +1,25 @@
+{
+  "name": "dgm3760",
+  "version": "1.0.0",
+  "description": "Site to hold UVU's DGM3760 class information.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TylersDesk/DGM3760.git"
+  },
+  "keywords": [
+    "UVU"
+  ],
+  "author": "Tyler Maynard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TylersDesk/DGM3760/issues"
+  },
+  "homepage": "https://github.com/TylersDesk/DGM3760#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
