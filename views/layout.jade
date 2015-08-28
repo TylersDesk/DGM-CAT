@@ -17,10 +17,32 @@ html
                     h4 Menu
                 md-content
                     p This sidenav is locked open on your device. To go back to the default behavior, narrow your display.
-            md-toolbar.tall(layout="row")
-                div.md-toolbar-tools
-                    md-button.md-icon-button(aria-label="Settings")
-                        ng-md-icon(icon="menu" ng-click="toggleLeft()")
+            md-toolbar.tall(layout="column" layout-padding)
+                div.header(layout="row")
+                    div.md-toolbar-tools
+                        md-button.md-icon-button(aria-label="Settings")
+                            ng-md-icon(icon="menu" ng-click="toggleLeft()")
+                        span(flex="")
+                        md-fab-speed-dial.md-fling(md-direction="down" style="top:60px")
+                            md-fab-trigger
+                                md-button.md-fab
+                                    md-tooltip(md-direction="top") Menu
+                                    ng-md-icon.s36(icon="more_vert" ng-click="toggleLeft()")
+                            md-fab-actions
+                                md-button.md-fab.md-raised.md-mini
+                                    md-tooltip(md-direction="left") Sylabus
+                                    md-icon(icon="school")
+                                md-button.md-fab.md-raised.md-mini
+                                    md-tooltip(md-direction="left") Sylabus
+                                    md-icon(icon="school")
+                                md-button.md-fab.md-raised.md-mini
+                                    md-tooltip(md-direction="left") Sylabus
+                                    md-icon(icon="school")
+                div.header-title
+                    h1 DGM3760
+                    md-subheader Welcome to Web Langauges II
+
+
         section(layout="column")    
             md-content(layout="column" layout-padding)
                 block content
