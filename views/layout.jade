@@ -8,43 +8,44 @@ html
     // endbower
 
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')    
 
   body(ng-app='dgm3760')
-    div(ng-controller="menuCtrl" layout="column")
-        section(layout="row" flex)
-            md-sidenav.md-sidenav-left.md-whiteframe-z2(md-component-id="left")
-                md-toolbar
-                    h4 Menu
-                md-content
-                    p This sidenav is locked open on your device. To go back to the default behavior, narrow your display.
-            md-toolbar.tall(layout="column" layout-padding)
-                div.header(layout="row")
-                    div.md-toolbar-tools
-                        md-button.md-icon-button(aria-label="Settings")
-                            ng-md-icon(icon="menu" ng-click="toggleLeft()")
-                        span(flex="")
-                        md-fab-speed-dial.md-fling(md-direction="down" style="top:60px")
-                            md-fab-trigger
-                                md-button.md-fab
-                                    md-tooltip(md-direction="top") Menu
-                                    ng-md-icon.s36(icon="more_vert" ng-click="toggleLeft()")
-                            md-fab-actions
-                                md-button.md-fab.md-raised.md-mini
-                                    md-tooltip(md-direction="left") Sylabus
-                                    md-icon(icon="school")
-                                md-button.md-fab.md-raised.md-mini
-                                    md-tooltip(md-direction="left") Sylabus
-                                    md-icon(icon="school")
-                                md-button.md-fab.md-raised.md-mini
-                                    md-tooltip(md-direction="left") Sylabus
-                                    md-icon(icon="school")
-                div.header-title
+    div(ng-controller="menuCtrl as ctrl" layout="column")
+        section(layout="column")
+            md-toolbar(layout="column")
+                div(layout="row" layout-align="end")
+                    span(flex)
+                    md-menu
+                        md-button.md-icon-button(ng-click="ctrl.openMenu($mdOpenMenu, $event)")
+                            md-icon(md-font-library="material-icons") menu
+                        md-menu-content(width="5")
+                            md-menu-item
+                                md-button 
+                                    md-icon(md-font-library="material-icons") schedule
+                                    | Weekly Schedule
+                            md-menu-item
+                                md-button 
+                                    md-icon(md-font-library="material-icons") assignment
+                                    | Assignments
+                            md-menu-item
+                                md-button 
+                                    md-icon(md-font-library="material-icons") assignment_late
+                                    | Quizzes
+                            md-menu-item
+                                md-button 
+                                    md-icon(md-font-library="material-icons") whatshot
+                                    | Pro Tips
+                            
+                div.header-title(layout="column")
                     h1 DGM3760
-                    md-subheader Welcome to Web Langauges II
-
+                    h2 Web Langauges II (Node.js)
+                
+                
+            
 
         section(layout="column")    
-            md-content(layout="column" layout-padding)
+            md-content(layout="column")
                 block content
     
 
@@ -53,7 +54,6 @@ html
     script(src='../bower_components/angular-animate/angular-animate.js')
     script(src='../bower_components/angular-aria/angular-aria.js')
     script(src='../bower_components/angular-material/angular-material.js')
-    script(src='../bower_components/angular-material-icons/angular-material-icons.min.js')
     // endbower
 
     // DGM3760:js

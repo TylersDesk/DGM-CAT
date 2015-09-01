@@ -20,6 +20,6 @@
   ],
   "dependencies": {
     "angular-material": "~0.10.1",
-    "angular-material-icons": "~0.5.0"
+    "material-design-icons": "~2.0.0"
   }
 }

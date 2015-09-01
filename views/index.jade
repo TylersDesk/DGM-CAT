@@ -1,5 +1,47 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  md-toolbar.md-accent(layout-padding)
+    p.md-body-1 Currently: <strong>Week 2</strong>
+  //- h1= title
+  md-content
+   md-list
+    md-subheader.md-no-sticky Topics
+    md-list-item.md-2-line
+      md-icon(md-font-library="material-icons") school
+      div.md-list-item-text
+          p Picking an IDE
+          p Emmet for Faster Development
+          p Node.JS History
+    md-divider
+    md-subheader.md-no-sticky Quizzes
+    md-list-item.md-3-line
+      md-icon(md-font-library="material-icons") assignment
+      div.md-list-item-text
+        h3 Basic Node JS History
+        h4 Due 9/3/2015 (Canvas)
+        p Based on Readings/Lectures
+    md-divider
+    md-subheader.md-no-sticky Readings
+    md-list-item.md-2-line
+      md-icon(md-font-library="material-icons") dvr
+      div.md-list-item-text
+        p
+          a(href="http://nodegeek.net/2013/12/18/nodejs-v8-history/") History of NodeJS and V8
+        p
+          a(href="http://nodegeek.net/2013/12/18/nodejs-v8-history/") Hello World Node Server
+        p
+          a(href="http://nodegeek.net/2013/12/18/nodejs-v8-history/") SnapChat or Bust
+    md-divider
+    md-subheader.md-no-sticky Notes
+    md-list-item.md-2-line
+      md-icon(md-font-library="material-icons") speaker_notes
+      div.md-list-item-text
+        h3 Don't Forget!
+        p I am testing this app. I will leave notes from the class here for your enjoyment!
+        p What happens if I add another line?
+    md-list-item.md-2-line
+      md-icon(md-font-library="material-icons") speaker_notes
+      div.md-list-item-text
+        h3 You thought I forget you didn't you!
+        p No. I didn't!

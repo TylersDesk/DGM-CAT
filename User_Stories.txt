@@ -1,0 +1,19 @@
+Site Heirachy
+
+/quizzes
+/weeks
+/projects
+
+
+As a student I want...
+	To be able to see whats upcoming for class
+	To be get information on past classes
+	View assigned Readings
+	View quiz dates
+
+
+As a Professor I want...
+	Organzie information on a week base system
+	A Section for Pro Tips
+	to add information to a 'class session'
+	add a quiz (which is the study material and a due date)

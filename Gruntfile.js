@@ -25,7 +25,7 @@ module.exports = function(grunt) {
       },
       watch: {
         dev: {
-           files: ['assets/js/*.js', 'views/*.jade'],
+           files: ['assets/js/*.js', 'views/*.jade', 'assets/scss/*.scss'],
            tasks: ['wiredep','sass']
         }
       }

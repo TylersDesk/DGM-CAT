@@ -1,3 +1,39 @@
 .md-toolbar-tools {
 	fill:#fff;
 }
+
+div.header-title {
+	padding-left: 20px;
+    padding-bottom: 13px;
+
+	h1 {
+	    margin-bottom: 0;
+	    margin-top:0;
+	}
+
+	h2 {
+		margin-top: 0;
+		font-size: 12px;
+	}
+}
+
+#main-nav {
+	ng-md-icon {
+		fill:#fff;
+		margin-top:6px;
+	}
+}
+
+ng-md-icon.main-button {
+	svg {
+		margin-top:6px;
+		fill:#fff;
+	}
+}
+
+md-menu-item {
+	ng-md-icon {
+		svg {
+		}
+	}
+}
