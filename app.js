@@ -8,6 +8,10 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+var mongoose = require('mongoose');
+var Week = require('./model/Week.js');
+var Reading = require('./model/Reading.js');
+
 var app = express();
 
 // view engine setup
@@ -22,6 +26,39 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
+
+
+
+/**
+ * Database Stuff
+ */
+// mongoose.connect('mongodb://localhost/dgm3760');
+// var db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'connection error:'));
+
+// var someReading = new Reading({url:"someSillyUrl",title:"This is my title"});
+
+// someReading.save(function(err,doc){
+//   if (err) console.log(err);
+//   console.log('Reading is ', doc);
+
+//   var weekOne = new Week({
+//     week:4,
+//     readings: someReading._id
+//   });
+
+//   weekOne.save(function(err,doc){
+//     if (err) console.log(err);
+//     console.log(doc);
+//   });
+
+// });
+
+
+
+/**
+* Routing 
+*/
 
 app.use('/', routes);
 app.use('/users', users);
