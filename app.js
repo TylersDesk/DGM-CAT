@@ -28,31 +28,37 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 
 
+app.get('/partials/:name', function(req,res){
+  var requestedPartial = req.params.name;
+  res.render('partials/' + requestedPartial);
+});
+
+
 
 /**
  * Database Stuff
  */
-// mongoose.connect('mongodb://localhost/dgm3760');
-// var db = mongoose.connection;
-// db.on('error', console.error.bind(console, 'connection error:'));
+mongoose.connect('mongodb://localhost/dgm3760');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
 
-// var someReading = new Reading({url:"someSillyUrl",title:"This is my title"});
+var someReading = new Reading({url:"someSillyUrl",title:"This is my title"});
 
-// someReading.save(function(err,doc){
-//   if (err) console.log(err);
-//   console.log('Reading is ', doc);
+someReading.save(function(err,doc){
+  if (err) console.log(err);
+  console.log('Reading is ', doc);
 
-//   var weekOne = new Week({
-//     week:4,
-//     readings: someReading._id
-//   });
+  var weekOne = new Week({
+    week:4,
+    readings: someReading._id
+  });
 
-//   weekOne.save(function(err,doc){
-//     if (err) console.log(err);
-//     console.log(doc);
-//   });
+  weekOne.save(function(err,doc){
+    if (err) console.log(err);
+    console.log(doc);
+  });
 
-// });
+});
 
 
 

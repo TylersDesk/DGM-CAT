@@ -20,6 +20,7 @@
   ],
   "dependencies": {
     "angular-material": "~0.10.1",
+    "angular-route": "~1.4.5",
     "material-design-icons": "~2.0.0"
   }
 }
