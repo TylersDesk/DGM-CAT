@@ -25,4 +25,12 @@ ng-md-icon.main-button svg {
   fill: #fff;
 }
 
+.week-title {
+  text-align: center;
+}
+
+md-fab-toolbar .md-fab-toolbar-wrapper {
+  height: 4.25rem;
+}
+
 /*# sourceMappingURL=style.css.map */

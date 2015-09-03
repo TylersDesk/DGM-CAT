@@ -2,6 +2,7 @@ doctype html
 html
   head
     title= title
+    base(href="/")
     meta(name="viewport" content="width=device-width, initial-scale=1")
     // bower:css
     link(rel='stylesheet', href='../bower_components/angular-material/angular-material.css')
@@ -37,7 +38,7 @@ html
                                     md-icon(md-font-library="material-icons") whatshot
                                     | Pro Tips
                             md-menu-item
-                                md-button.md-primary 
+                                md-button.md-primary(href="/admin")
                                     md-icon(md-font-library="material-icons") vpn_key
                                     | Admin
                             

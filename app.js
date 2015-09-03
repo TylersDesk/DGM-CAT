@@ -6,7 +6,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 
 var mongoose = require('mongoose');
 var Week = require('./model/Week.js');
@@ -33,32 +32,30 @@ app.get('/partials/:name', function(req,res){
   res.render('partials/' + requestedPartial);
 });
 
-
-
 /**
  * Database Stuff
  */
-mongoose.connect('mongodb://localhost/dgm3760');
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
+// mongoose.connect('mongodb://localhost/dgm3760');
+// var db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'connection error:'));
 
-var someReading = new Reading({url:"someSillyUrl",title:"This is my title"});
+// var someReading = new Reading({url:"someSillyUrl",title:"This is my title"});
 
-someReading.save(function(err,doc){
-  if (err) console.log(err);
-  console.log('Reading is ', doc);
+// someReading.save(function(err,doc){
+//   if (err) console.log(err);
+//   console.log('Reading is ', doc);
 
-  var weekOne = new Week({
-    week:4,
-    readings: someReading._id
-  });
+//   var weekOne = new Week({
+//     week:4,
+//     readings: someReading._id
+//   });
 
-  weekOne.save(function(err,doc){
-    if (err) console.log(err);
-    console.log(doc);
-  });
+//   weekOne.save(function(err,doc){
+//     if (err) console.log(err);
+//     console.log(doc);
+//   });
 
-});
+// });
 
 
 
@@ -67,7 +64,14 @@ someReading.save(function(err,doc){
 */
 
 app.use('/', routes);
-app.use('/users', users);
+app.all('/*', function ( req, res ) {
+    console.log('All');
+    res
+        .status( 200 )
+        .set( { 'content-type': 'text/html; charset=utf-8' } )
+        .render('index' );
+});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

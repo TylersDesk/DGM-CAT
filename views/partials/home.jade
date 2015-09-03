@@ -1,5 +1,9 @@
-md-toolbar.md-accent(layout-padding)
-  p.md-body-1 Currently: <strong>Week 2</strong>
+md-toolbar.md-accent(layout="row" layout-align="pace-around start" layout-padding)
+  md-button
+    md-icon(md-font-library="material-icons") chevron_left
+  p(flex).week-title.md-body-1 Currently: <strong>Week 2</strong>
+  md-button
+    md-icon(md-font-library="material-icons") chevron_right
   //- h1= title
 md-content
  md-list
