@@ -26,7 +26,7 @@ router.route('/weeks')
 .post(function(req,res,next){
     console.log(req.body.week);
 
-    if (req.body.week === 0 || req.body.week === null || req.body.week === undefined ) {
+    if (req.body.week === 0 || req.body.week === null || req.body.week === undefined || req.body.week === "" ) {
         console.log('Trying to save an invalid # as week...');
         res.status(400).json({"error":"invalid week number"});
     } else {

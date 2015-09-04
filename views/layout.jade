@@ -22,8 +22,8 @@ html
                             md-icon(md-font-library="material-icons") menu
                         md-menu-content(width="5")
                             md-menu-item
-                                md-button 
-                                    md-icon(md-font-library="material-icons") schedule
+                                md-button(href="/")
+                                    md-icon(md-font-library="material-icons") home
                                     | Weekly Schedule
                             md-menu-item
                                 md-button 
@@ -59,10 +59,12 @@ html
     script(src='../bower_components/angular-animate/angular-animate.js')
     script(src='../bower_components/angular-aria/angular-aria.js')
     script(src='../bower_components/angular-material/angular-material.js')
+    script(src='../bower_components/angular-resource/angular-resource.js')
     script(src='../bower_components/angular-route/angular-route.js')
     // endbower
 
     // DGM3760:js
     script(src='/scripts/app.js')
     script(src='/scripts/controllers.js')
+    script(src='/scripts/services.js')
     //

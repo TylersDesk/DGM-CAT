@@ -33,4 +33,8 @@ md-fab-toolbar .md-fab-toolbar-wrapper {
   height: 4.25rem;
 }
 
+section.no-weeks {
+  background: #ccc;
+}
+
 /*# sourceMappingURL=style.css.map */

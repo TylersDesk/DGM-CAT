@@ -1,4 +1,5 @@
-angular.module('dgm3760.controllers', []).controller('menuCtrl', ['$scope','$mdDialog', '$log', function($scope,$mdDialog,$log){
+angular.module('dgm3760.controllers', ['dgm3760.services.weeks'])
+.controller('menuCtrl', ['$scope','$mdDialog', '$log', function($scope,$mdDialog,$log){
   var originatorEv;
 	
   /**
@@ -10,4 +11,29 @@ angular.module('dgm3760.controllers', []).controller('menuCtrl', ['$scope','$mdD
     originatorEv = ev;
     $mdOpenMenu(ev);
   };
+}])
+.controller('adminCtrl', ['Week','$scope', '$mdToast', function(Week,$scope,$mdToast){
+  $scope.hasWeeks;
+  $scope.weekNameInput;
+
+  var allWeeks = Week.get(function(data){
+    console.log(data.data.length);
+    $scope.hasWeeks = data.data.length;
+  });
+
+  $scope.addWeek = function(weekNum) {
+    console.log(weekNum);
+    Week.save({"week":weekNum});
+    showSimpleToast();
+    $scope.weekNameInput = "";
+
+  };
+
+  var showSimpleToast = function() {
+    $mdToast.show({
+      template:"<md-toast>Saving Week...</md-toast>",
+      parent:".toast-container"          
+    });
+  };
+
 }]);

@@ -1,19 +1,34 @@
 md-toolbar.md-accent(layout="row" layout-align="pace-around start" layout-padding)
-  p(flex).week-title Hello Professor
+  p(flex).week-title Hello Professor {{weekNameInput}}
 md-content(layout="column")
-  md-fab-toolbar.md-right(count="0" md-is-open="false")
-    md-fab-trigger.align-with-text
-      md-button.md-fab.md-primary
-        md-icon(md-font-library="material-icons") add
-    md-toolbar
-      md-fab-actions.md-toolbar-tools
-        md-button.md-icon-button
+
+  md-content(layout-padding)
+    md-card
+      img
+      md-card-content.toast-container
+        h2.md-display-3 Uh Oh. </br>No Weeks Found!
+        p.md-headline Maybe you should add one?
+        md-input-container.md-icon-float
+          //Use floating label instead of placeholder
+          label Week (Number)
           md-icon(md-font-library="material-icons") school
-        md-button.md-icon-button
-          md-icon(md-font-library="material-icons") assignment
-        md-button.md-icon-button
-          md-icon(md-font-library="material-icons") assessment
-        md-button.md-icon-button
-          md-icon(md-font-library="material-icons") speaker_notes
-        md-button.md-icon-button
-          md-icon(md-font-library="material-icons") dvr
+          input(ng-model="weekNameInput" type="text")
+        div(layout="row" layout-align="center center")
+          md-button.md-raised(ng-click="addWeek(weekNameInput)") Add Week to Class
+  
+  //- md-fab-toolbar.md-right(count="0" md-is-open="false")
+  //-   md-fab-trigger.align-with-text
+  //-     md-button.md-fab.md-primary
+  //-       md-icon(md-font-library="material-icons") add
+  md-toolbar
+    md-fab-actions.md-toolbar-tools
+      md-button.md-icon-button
+        md-icon(md-font-library="material-icons") school
+      md-button.md-icon-button
+        md-icon(md-font-library="material-icons") assignment
+      md-button.md-icon-button
+        md-icon(md-font-library="material-icons") assessment
+      md-button.md-icon-button
+        md-icon(md-font-library="material-icons") speaker_notes
+      md-button.md-icon-button
+        md-icon(md-font-library="material-icons") dvr
