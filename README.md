@@ -17,7 +17,12 @@ This a MEAN (Mong Express.js Angular.js Node.js) web app that students can use t
 
 * Install & Run Mongodb
 * Install node
-* Get this source code ()
+* Get this source code (git clone https://github.com/TylersDesk/DGM3760.git)
+
+`npm install`
+`bower install`
+`grunt` 
+`npm start`
 
 
 ## User Stories
