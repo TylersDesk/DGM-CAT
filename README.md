@@ -13,6 +13,13 @@ This a MEAN (Mong Express.js Angular.js Node.js) web app that students can use t
 	* Notes
 	* More...
 
+## Getting Started (development)
+
+* Install & Run Mongodb
+* Install node
+* Get this source code ()
+
+
 ## User Stories
 
 Below are user stories and TODOs. I am hoping to turn this over to the UVU DGM department as an open source application.

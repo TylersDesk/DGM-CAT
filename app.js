@@ -1,18 +1,21 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+var express =       require('express');
+var path =          require('path');
+var favicon =       require('serve-favicon');
+var logger =        require('morgan');
+var cookieParser =  require('cookie-parser');
+var bodyParser =    require('body-parser');
+var mongoose  = require('mongoose');
+var routes =        require('./routes/index');
+var api =           require('./routes/api');
 
-var routes = require('./routes/index');
-
-var mongoose = require('mongoose');
-var Week = require('./model/Week.js');
-var Reading = require('./model/Reading.js');
 
 var app = express();
 
+
+app.set('env', 'development');
+
+
+console.log(app.get('env'));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -26,6 +29,16 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 
+//Hanlde internal erros
+app.use(function(err,req,res,next){
+  if (err) {
+    console.log(err);
+    res.status(err.statusCode).json(err);
+  } else {
+    next();
+  }
+
+});
 
 app.get('/partials/:name', function(req,res){
   var requestedPartial = req.params.name;
@@ -35,35 +48,21 @@ app.get('/partials/:name', function(req,res){
 /**
  * Database Stuff
  */
-// mongoose.connect('mongodb://localhost/dgm3760');
-// var db = mongoose.connection;
-// db.on('error', console.error.bind(console, 'connection error:'));
-
-// var someReading = new Reading({url:"someSillyUrl",title:"This is my title"});
-
-// someReading.save(function(err,doc){
-//   if (err) console.log(err);
-//   console.log('Reading is ', doc);
-
-//   var weekOne = new Week({
-//     week:4,
-//     readings: someReading._id
-//   });
-
-//   weekOne.save(function(err,doc){
-//     if (err) console.log(err);
-//     console.log(doc);
-//   });
-
-// });
-
-
+mongoose.connect('mongodb://localhost/dgm3760');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  // Wait for the database connection to establish, then start the app.                         
+});
 
 /**
 * Routing 
 */
 
 app.use('/', routes);
+app.use('/api', api);
+
+
 app.all('/*', function ( req, res ) {
     console.log('All');
     res
