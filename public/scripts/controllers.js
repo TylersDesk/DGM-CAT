@@ -12,7 +12,7 @@ angular.module('dgm3760.controllers', ['dgm3760.services.weeks'])
     $mdOpenMenu(ev);
   };
 }])
-.controller('adminCtrl', ['Week','$scope', '$mdToast', function(Week,$scope,$mdToast){
+.controller('adminCtrl', ['Week','$scope', '$mdToast', '$location', function(Week,$scope,$mdToast,$location){
   $scope.hasWeeks;
   $scope.weekNameInput;
 
@@ -26,8 +26,11 @@ angular.module('dgm3760.controllers', ['dgm3760.services.weeks'])
     Week.save({"week":weekNum});
     showSimpleToast();
     $scope.weekNameInput = "";
-
   };
+
+  $scope.go = function(route) {
+     $location.path(route);
+  }
 
   var showSimpleToast = function() {
     $mdToast.show({
@@ -35,5 +38,7 @@ angular.module('dgm3760.controllers', ['dgm3760.services.weeks'])
       parent:".toast-container"          
     });
   };
+
+
 
 }]);

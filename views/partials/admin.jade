@@ -2,8 +2,8 @@ md-toolbar.md-accent(layout="row" layout-align="pace-around start" layout-paddin
   p(flex).week-title Hello Professor {{weekNameInput}}
 md-content(layout="column")
 
-  md-content(layout-padding)
-    md-card
+  md-content
+    md-card(ng-hide="hasWeeks")
       img
       md-card-content.toast-container
         h2.md-display-3 Uh Oh. </br>No Weeks Found!
@@ -15,7 +15,39 @@ md-content(layout="column")
           input(ng-model="weekNameInput" type="text")
         div(layout="row" layout-align="center center")
           md-button.md-raised(ng-click="addWeek(weekNameInput)") Add Week to Class
-  
+    
+    md-list
+      md-subheader.md-no-sticky Add High Level Item
+      md-list-item(ng-click="go('/admin/add/class')")
+        md-icon(md-font-library="material-icons") event
+        p Class
+        md-icon(md-font-library="material-icons") add_circle_outline
+      md-divider
+
+    md-list
+      md-subheader.md-no-sticky Add Lower Level Item
+      md-list-item(ng-click)
+        md-icon(md-font-library="material-icons") school
+        p Topic
+        md-icon(md-font-library="material-icons") add_circle_outline
+      md-divider
+      md-list-item(ng-click)
+        md-icon(md-font-library="material-icons") assignment_late
+        p Quiz
+        md-icon(md-font-library="material-icons") add_circle_outline
+      md-divider
+      md-list-item(ng-click)
+        md-icon(md-font-library="material-icons") speaker_notes
+        p Note
+        md-icon(md-font-library="material-icons") add_circle_outline
+      md-divider
+      md-list-item(ng-click)
+        md-icon(md-font-library="material-icons") dvr
+        p Reading
+        md-icon(md-font-library="material-icons") add_circle_outline
+
+        
+
   //- md-fab-toolbar.md-right(count="0" md-is-open="false")
   //-   md-fab-trigger.align-with-text
   //-     md-button.md-fab.md-primary

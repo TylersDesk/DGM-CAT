@@ -10,6 +10,13 @@ angular.module( 'dgm3760', [ 'ngRoute','ngMaterial','ngResource','dgm3760.contro
     .when('/admin', {
       templateUrl: 'partials/admin',
       controller:'adminCtrl'
+    })
+    .when('/admin/add/class', {
+      templateUrl: 'partials/addClass',
+      controller:'classCtrl'
+    })
+    .when('/week/2', {
+      templateUrl: 'partials/week2.jade'
     });
   $locationProvider
   .html5Mode(true);
