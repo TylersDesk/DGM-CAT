@@ -3,24 +3,11 @@ md-toolbar.md-accent(layout="row" layout-align="pace-around start" layout-paddin
 md-content(layout="column")
 
   md-content
-    md-card(ng-hide="hasWeeks")
-      img
-      md-card-content.toast-container
-        h2.md-display-3 Uh Oh. </br>No Weeks Found!
-        p.md-headline Maybe you should add one?
-        md-input-container.md-icon-float
-          //Use floating label instead of placeholder
-          label Week (Number)
-          md-icon(md-font-library="material-icons") school
-          input(ng-model="weekNameInput" type="text")
-        div(layout="row" layout-align="center center")
-          md-button.md-raised(ng-click="addWeek(weekNameInput)") Add Week to Class
-    
     md-list
       md-subheader.md-no-sticky Add High Level Item
-      md-list-item(ng-click="go('/admin/add/class')")
+      md-list-item(ng-click="go('/admin/add/week')")
         md-icon(md-font-library="material-icons") event
-        p Class
+        p Week
         md-icon(md-font-library="material-icons") add_circle_outline
       md-divider
 

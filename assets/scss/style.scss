@@ -2,6 +2,10 @@
 	fill:#fff;
 }
 
+.main-container {
+	height:100%;
+}
+
 div.header-title {
 	padding-left: 20px;
     padding-bottom: 13px;
@@ -44,6 +48,22 @@ md-menu-item {
 
 md-fab-toolbar .md-fab-toolbar-wrapper {
 	height: 4.25rem;
+}
+
+.odd-tile {
+	background:rgb(0,150,136);
+}
+
+.even-tile {
+	background:rgb(255,215,64);
+}
+
+.existing-weeking {
+	margin-top:20px;
+}
+
+md-toast.toast-error {
+	background:red;
 }
 
 section.no-weeks {

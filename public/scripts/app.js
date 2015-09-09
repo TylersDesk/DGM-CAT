@@ -11,9 +11,9 @@ angular.module( 'dgm3760', [ 'ngRoute','ngMaterial','ngResource','dgm3760.contro
       templateUrl: 'partials/admin',
       controller:'adminCtrl'
     })
-    .when('/admin/add/class', {
-      templateUrl: 'partials/addClass',
-      controller:'classCtrl'
+    .when('/admin/add/week', {
+      templateUrl: 'partials/addWeek',
+      controller:'weekCtrl'
     })
     .when('/week/2', {
       templateUrl: 'partials/week2.jade'

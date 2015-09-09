@@ -2,6 +2,10 @@
   fill: #fff;
 }
 
+.main-container {
+  height: 100%;
+}
+
 div.header-title {
   padding-left: 20px;
   padding-bottom: 13px;
@@ -31,6 +35,22 @@ ng-md-icon.main-button svg {
 
 md-fab-toolbar .md-fab-toolbar-wrapper {
   height: 4.25rem;
+}
+
+.odd-tile {
+  background: #009688;
+}
+
+.even-tile {
+  background: #ffd740;
+}
+
+.existing-weeking {
+  margin-top: 20px;
+}
+
+md-toast.toast-error {
+  background: red;
 }
 
 section.no-weeks {
