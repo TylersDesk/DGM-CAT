@@ -3,7 +3,8 @@ var mongoose = require('mongoose');
 
 var weekSchema = mongoose.Schema({
     week: {type: Number, trim: true, index: true, unique: true},
-    readings: [{type: mongoose.Schema.ObjectId, ref:'Reading'}]
+    readings: [{type: mongoose.Schema.ObjectId, ref:'Reading'}],
+    topics:[String]
 });
 
 weekSchema.methods.amNow = function() {

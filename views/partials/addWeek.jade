@@ -1,15 +1,15 @@
 md-content(layout-padding)
   h2.md-title Add Week
-  md-input-container.md-icon-float
+  md-input-container
     //Use floating label instead of placeholder
-    label Week (Number)
-    md-icon(md-font-library="material-icons") school
+    label What week am I? (Number)
     input(ng-model="weekNameInput" type="text")
-  
+  h2.md-title Week's topics
+    md-chips(placeholder="Add Topic" secondary-placeholder="Enter a Topic" ng-model="weekTopics" readonly="false")
+     
   div(layout="row" layout-align="center center")
-    md-button.md-raised(ng-click="addWeek(weekNameInput)") Add Week to Class
-    br
-    br
+    md-button.md-raised(ng-click="addWeek(weekNameInput,weekTopics)") Add Week to Class
+
 
 md-divider.existing-weeking
 md-content(layout-padding)
@@ -18,7 +18,7 @@ md-content(layout-padding)
   md-grid-list(md-cols="5" md-cols-sm="3" md-row-height="1:1" md-gutter="4px")
     md-grid-tile(ng-repeat="week in weeks | orderBy:'week'" md-rowspan="1" md-colspan="1" ng-class-odd="'odd-tile'" ng-class-even="'even-tile'" ng-click="")
       md-grid-tile-footer
-        h3 {{week.week}}
+        h3 Week {{week.week}}
 
 
   //- <md-grid-list

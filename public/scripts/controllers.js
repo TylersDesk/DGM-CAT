@@ -23,6 +23,7 @@ angular.module('dgm3760.controllers', ['dgm3760.services.weeks'])
   $scope.hasWeeks;
   $scope.weekNameInput;
   $scope.weeks;
+  $scope.weekTopics = [];
 
   var allWeeks = Week.get(function(data){
     console.log(data.data);
@@ -30,10 +31,11 @@ angular.module('dgm3760.controllers', ['dgm3760.services.weeks'])
     $scope.hasWeeks = data.data.length;
   });
 
-  $scope.addWeek = function(weekNum) {
-    console.log(weekNum);
+  $scope.addWeek = function(weekNum,weekTopics) {
+    console.log(weekNum,weekTopics);
     showPendingToast();
-    Week.save({"week":weekNum}, 
+    
+    Week.save({"week":weekNum, "topics":weekTopics}, 
       //Hanlde Success
       function(data) {
         console.log(data);

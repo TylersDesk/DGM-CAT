@@ -33,6 +33,7 @@ router.route('/weeks')
         var week = new Week();
 
         week.week = req.body.week;
+        week.topics = req.body.topics;
 
         week.save(function(err, doc){
             if (err) {
