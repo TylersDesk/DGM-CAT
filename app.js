@@ -29,7 +29,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 
-//Hanlde internal erros
+//Handle internal erros
 app.use(function(err,req,res,next){
   if (err) {
     console.log(err);

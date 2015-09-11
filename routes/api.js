@@ -69,5 +69,26 @@ router.route('/weeks')
     });
 });
 
+/*
+ * Get Specific Week Routes
+ *
+ */
+router.route('/week/:week')
+.get(function(req,res,ext) {
+    Week.findOne({week:req.params.week}, function(err, doc){
+        if (err) {
+            console.log(err);
+            res.send(err);
+        } else if (doc) {
+            doc.getNextWeek(function(err,nextDoc){
+                console.log(nextDoc);
+            });
+            res.send(doc);
+        } else {
+            res.send('No Document Found!');
+        }
+    });
+});
+
 
 module.exports = router;
