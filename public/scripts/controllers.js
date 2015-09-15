@@ -1,4 +1,22 @@
 angular.module('dgm3760.controllers', ['dgm3760.services.weeks'])
+.controller('weekDetail', [ 'Week', '$scope', '$routeParams', function mainView(Week,$scope,$routeParams,$location){
+  
+  var thisWeek = Week.get({weekId:$routeParams.weekId},function(data){
+    $scope.weekData = data;
+  });
+
+}])
+.controller('homeCtrl', ['Weeks', '$scope', '$location', function(Weeks,$scope,$location){
+  var allWeeks = Weeks.get(function(weeks){
+    console.log(weeks.data);
+    $scope.weeks = weeks.data;
+  });
+
+  $scope.goTo = function(aWeek) {
+    console.log(aWeek);
+    $location.path('/week/' + aWeek.week);
+  };
+}])
 .controller('menuCtrl', ['$scope','$mdDialog', '$log', function($scope,$mdDialog,$log){
   var originatorEv;
 	
@@ -12,20 +30,19 @@ angular.module('dgm3760.controllers', ['dgm3760.services.weeks'])
     $mdOpenMenu(ev);
   };
 }])
-.controller('adminCtrl', ['Week','$scope', '$mdToast', '$location', function(Week,$scope,$mdToast,$location){
+.controller('adminCtrl', ['$scope', '$mdToast', '$location', function($scope,$mdToast,$location){
 
   $scope.go = function(route) {
      $location.path(route);
   }
-
 }])
-.controller('weekCtrl', ['Week','$scope', '$mdToast', function(Week, $scope, $mdToast) {
+.controller('weekCtrl', ['Weeks','$scope', '$mdToast', function(Weeks, $scope, $mdToast) {
   $scope.hasWeeks;
   $scope.weekNameInput;
   $scope.weeks;
   $scope.weekTopics = [];
 
-  var allWeeks = Week.get(function(data){
+  var allWeeks = Weeks.get(function(data){
     console.log(data.data);
     $scope.weeks = data.data;
     $scope.hasWeeks = data.data.length;
@@ -35,13 +52,13 @@ angular.module('dgm3760.controllers', ['dgm3760.services.weeks'])
     console.log(weekNum,weekTopics);
     showPendingToast();
     
-    Week.save({"week":weekNum, "topics":weekTopics}, 
+    Weeks.save({"week":weekNum, "topics":weekTopics}, 
       //Hanlde Success
       function(data) {
         console.log(data);
         showSuccessToast(weekNum);
         
-        Week.get(function(data){
+        Weeks.get(function(data){
           $scope.weeks = data.data;
         });
       },
@@ -88,6 +105,4 @@ angular.module('dgm3760.controllers', ['dgm3760.services.weeks'])
       parent:".toast-container"          
     });
   }
-
-
 }]);

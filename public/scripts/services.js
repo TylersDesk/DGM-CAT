@@ -1,8 +1,13 @@
 angular.module( 'dgm3760.services.weeks', ['ngResource'])
-.factory('Week', ['$resource', function($resource) {
+.factory('Weeks', ['$resource', function($resource) {
 
-  var Week = $resource('/api/weeks');
+  var Weeks = $resource('/api/weeks');
 
-  return Week;
+  return Weeks;
 
+}])
+.factory('Week', ['$resource', function($resource){
+	var Week = $resource('/api/week/:weekId');
+
+	return Week;
 }]);

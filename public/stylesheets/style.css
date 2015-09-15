@@ -38,11 +38,11 @@ md-fab-toolbar .md-fab-toolbar-wrapper {
 }
 
 .odd-tile {
-  background: #009688;
+  background: rgba(147, 147, 147, 0.93);
 }
 
 .even-tile {
-  background: #ffd740;
+  background: rgba(198, 198, 198, 0.93);
 }
 
 .existing-weeking {
