@@ -1,12 +1,13 @@
 var mongoose = require('mongoose');
 
-
 var weekSchema = mongoose.Schema({
     week: {type: Number, trim: true, index: true, unique: true},
     prevWeek : {type: mongoose.Schema.ObjectId, ref:'Week'},
     nextWeek : {type: mongoose.Schema.ObjectId, ref:'Week'},
     readings: [{type: mongoose.Schema.ObjectId, ref:'Reading'}],
-    topics:[String]
+    topics:[String],
+    weekStart: { type: Date },
+    weekEnd: { type: Date }
 });
 
 weekSchema.methods.amNow = function() {

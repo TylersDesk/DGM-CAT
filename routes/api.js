@@ -24,7 +24,6 @@ router.route('/')
 /* GET home page. */
 router.route('/weeks')
 .post(function(req,res,next){
-    console.log(req.body.week);
 
     if (req.body.week === 0 || req.body.week === null || req.body.week === undefined || req.body.week === "" ) {
         console.log('Trying to save an invalid # as week...');
@@ -32,8 +31,14 @@ router.route('/weeks')
     } else {
         var week = new Week();
 
+        console.log(req.body);
+
         week.week = req.body.week;
         week.topics = req.body.topics;
+        week.weekStart = req.body.weekStart;
+        week.weekEnd = req.body.weekEnd;
+
+        console.log(week);
 
         week.save(function(err, doc){
             if (err) {

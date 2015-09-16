@@ -6,7 +6,16 @@ md-content(layout-padding)
     input(ng-model="weekNameInput" type="text")
   h2.md-title Week's topics
     md-chips(placeholder="Add Topic" secondary-placeholder="Enter a Topic" ng-model="weekTopics" readonly="false")
-     
+  div(layout="row")
+    md-content(flex)
+      h2.md-title Week Start Day
+      md-datepicker(ng-model="startDate" md-placeholder="Enter date")
+    md-content(flex)
+      h2.md-title Week End Day
+      md-datepicker(ng-model="endDate" md-placeholder="Enter date")
+
+  md-divider
+  
   div(layout="row" layout-align="center center")
     md-button.md-raised(ng-click="addWeek(weekNameInput,weekTopics)") Add Week to Class
 

@@ -42,6 +42,9 @@ angular.module('dgm3760.controllers', ['dgm3760.services.weeks'])
   $scope.weeks;
   $scope.weekTopics = [];
 
+  $scope.startDate = new Date();
+  $scope.endDate = new Date();
+
   var allWeeks = Weeks.get(function(data){
     console.log(data.data);
     $scope.weeks = data.data;
@@ -52,7 +55,7 @@ angular.module('dgm3760.controllers', ['dgm3760.services.weeks'])
     console.log(weekNum,weekTopics);
     showPendingToast();
     
-    Weeks.save({"week":weekNum, "topics":weekTopics}, 
+    Weeks.save({"week":weekNum, "topics":weekTopics, "weekStart":$scope.startDate ,"weekEnd":$scope.endDate}, 
       //Hanlde Success
       function(data) {
         console.log(data);
@@ -61,15 +64,18 @@ angular.module('dgm3760.controllers', ['dgm3760.services.weeks'])
         Weeks.get(function(data){
           $scope.weeks = data.data;
         });
+
+        //Clear all the set Values;
+        $scope.weekNameInput = "";
+        $scope.startDate = new Date();
+        $scope.endDate = new Date();
+        $scope.weekTopics = [];
       },
       // Handle Error
       function(error) {
         console.log(error);
         showFailToast(error.status)
       });
-
-    
-    $scope.weekNameInput = "";
   };
 
   function showPendingToast() {
