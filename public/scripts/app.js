@@ -5,7 +5,7 @@ angular.module( 'dgm3760', [ 'ngRoute','ngMaterial','ngResource','dgm3760.contro
     .accentPalette('amber');
   $routeProvider
     .when('/', {
-      templateUrl:'partials/week6'
+      templateUrl:'partials/week7'
     })
     .when('/admin', {
       templateUrl: 'partials/admin',
@@ -29,6 +29,9 @@ angular.module( 'dgm3760', [ 'ngRoute','ngMaterial','ngResource','dgm3760.contro
     })
     .when('/week/6', {
       templateUrl: 'partials/week6'
+    })
+    .when('/week/7', {
+      templateUrl: 'partials/week7'
     });
   $locationProvider
   .html5Mode(true);
