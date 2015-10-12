@@ -32,6 +32,9 @@ angular.module( 'dgm3760', [ 'ngRoute','ngMaterial','ngResource','dgm3760.contro
     })
     .when('/week/7', {
       templateUrl: 'partials/week7'
+    })
+    .when('/week/8', {
+      templateUrl: 'partials/week8'
     });
   $locationProvider
   .html5Mode(true);
