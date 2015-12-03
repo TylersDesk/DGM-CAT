@@ -3,6 +3,7 @@ var router =        express.Router();
 var mongoose =      require('mongoose');
 var Week =          require('../model/Week.js');
 var Reading =       require('../model/Reading.js');
+var Quote =         require('../model/Quote.js');
 
 
 // middleware to use for all requests
@@ -66,6 +67,53 @@ router.route('/weeks')
             });
         }
     });
+});
+
+router.route('/quotes')
+.get(function (req,res,next) {
+    Quote.find(function(err, allQuotes){
+        if (err) {
+            console.log(err);
+            res.status(500).send("Sorry something went wrong");
+        } 
+        else 
+        {
+            res.status(200).json({
+                "data":allQuotes,
+                "author":"Tyler Maynard"
+            });
+        }
+    });
+})
+.post(function(req,res,next){
+
+    if (req.body.week === 0 || req.body.week === null || req.body.week === undefined || req.body.week === "" ) {
+        console.log('Trying to save an invalid # as week...');
+        res.status(400).json({"error":"invalid week number"});
+    } else {
+        var quote = new Quote();
+
+        quote.quote = req.body.quote;
+        quote.author = req.body.author;
+        quote.pic = req.body.pic;
+
+        quote.save(function(err, doc){
+            if (err) {
+                if (err.code === 11000) {
+                    res.status(409).json({"error":"week already exists"});
+                } else {
+                    res.send(err);
+                }
+            }
+            else
+            {
+                res.json({
+                    "message":"Succesfully saved quote!",
+                    "quote":doc
+                });
+            }
+        });           
+    }
 });
 
 
